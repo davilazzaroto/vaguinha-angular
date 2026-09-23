@@ -1,0 +1,241 @@
+.card-vaga {
+  padding: 22px;
+  background-color: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.card-vaga:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.14);
+}
+
+.topo-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.logo-empresa {
+  flex-shrink: 0;
+  height: 65px;
+  width: 65px;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  object-fit: cover;
+}
+
+.identificacao {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.empresa {
+  margin: 0 0 4px;
+  color: #1d4ed8;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.identificacao h3 {
+  margin: 0 0 8px;
+  color: #0f172a;
+  font-size: 20px;
+}
+
+.localizacao {
+  margin: 0;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.botao-favorito {
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 50%;
+  color: #64748b;
+  background-color: #e2e8f0;
+  font-size: 25px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.botao-favorito:hover:not(:disabled) {
+  transform: scale(1.08);
+}
+
+.botao-favorito.favorito {
+  color: #a16207;
+  background-color: #fef3c7;
+}
+
+.botao-favorito:focus-visible {
+  outline: 2px solid #a16207;
+  outline-offset: 3px;
+}
+
+.etiquetas {
+  display: flex;
+  margin: 18px 0;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.situacao {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.aberta {
+  color: #166534;
+  background-color: #dcfce7;
+}
+
+.encerrada {
+  color: #475569;
+  background-color: #e2e8f0;
+}
+
+.urgente {
+  color: #b91c1c;
+  background-color: #fee2e2;
+}
+
+.favorito {
+  color: #a16207;
+  background-color: #fef3c7;
+}
+
+.informacoes {
+  margin-bottom: 16px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.informacoes > :not(.informacao) {
+  grid-column: 1 / -1;
+}
+
+.informacao {
+  overflow-wrap: anywhere;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background-color: #f1f5f9;
+  border-radius: 10px;
+}
+
+.rotulo {
+  color: #475569;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.informacao strong {
+  color: #0f172a;
+}
+
+.descricao {
+  color: #64748b;
+  line-height: 1.6;
+}
+
+.botao-detalhes {
+  width: 100%;
+  padding: 11px;
+  border: 1px solid #2563eb;
+  color: #1d4ed8;
+  border-radius: 9px;
+  background-color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.botao-detalhes:hover {
+  color: #fff;
+  background-color: #1d4ed8;
+}
+
+.requisitos {
+  margin-top: 16px;
+  padding: 16px;
+  background-color: #eff6ff;
+  border-left: 4px solid #2563eb;
+  border-radius: 8px;
+}
+
+.requisitos h4 {
+  margin: 0 0 10px;
+  color: #64748b;
+}
+
+.requisitos ul {
+  margin: 0;
+  padding-left: 20px;
+  color: #64748b;
+}
+
+.requisitos li {
+  margin-bottom: 6px;
+}
+
+.area-candidatura {
+  margin-top: 18px;
+}
+
+.botao-candidatar {
+  width: 100%;
+  padding: 9px;
+  border: none;
+  border-radius: 12px;
+  color: #fff;
+  background-color: #15803d;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.botao-candidatar:hover:not(:disabled) {
+  background-color: #166534;
+}
+
+.botao-candidatar:disabled {
+  color: #475569;
+  background-color: #e2e8f0;
+  cursor: not-allowed;
+}
+
+.mensagem-sucesso {
+  margin: 0 0 14px;
+  padding: 12px;
+  border-radius: 8px;
+  color: #166534;
+  background-color: #dcfce7;
+  text-align: center;
+  font-weight: bold;
+}
+
+@media (max-width: 480px) {
+  .topo-card {
+    flex-wrap: wrap;
+  }
+  .informacoes {
+    grid-template-columns: 1fr;
+  }
+}
+
+.botao-favorito:disabled { opacity: 0.5; cursor: not-allowed; }

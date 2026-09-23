@@ -1,0 +1,91 @@
+<article class="card-vaga" [id]="'vaga-' + vaga.id">
+  <div class="topo-card">
+    <img class="logo-empresa" [src]="vaga.imagem" [alt]="'Logotipo da empresa ' + vaga.empresa" />
+    <div class="identificacao">
+      <p class="empresa">{{ vaga.empresa }}</p>
+      <h3>{{ vaga.cargo }}</h3>
+      <p class="localizacao">{{ vaga.localizacao }} - {{ vaga.modalidade }}</p>
+    </div>
+
+    <button
+      type="button"
+      class="botao-favorito"
+      [class.favorito]="vaga.favorita"
+      [disabled]="!usuarioLogado"
+      [attr.aria-pressed]="vaga.favorita"
+      [attr.aria-label]="vaga.favorita ? 'Remover dos favoritos' : 'Adicionar aos favoritos'"
+      [title]="vaga.favorita ? 'Remover dos favoritos' : 'Adicionar aos favoritos'"
+      (click)="alterarFavorita()"
+    >
+      <span aria-hidden="true">{{ vaga.favorita ? '★' : '☆' }}</span>
+    </button>
+  </div>
+  <div class="etiquetas">
+    @if (vaga.aberta) {
+      <span class="situacao aberta">Vaga Aberta</span>
+    } @else {
+      <span class="situacao encerrada">Vaga Fechada</span>
+    }
+    @if (vaga.urgente) {
+      <span class="situacao urgente">Vaga Urgente</span>
+    }
+    @if (vaga.favorita) {
+      <span class="situacao favorito">Favoritado</span>
+    }
+  </div>
+  <div class="informacoes">
+    <div class="informacao">
+      <span class="rotulo">Salário</span>
+      @if (vaga.salario > 0) {
+        <strong>R$ {{ vaga.salario.toLocaleString('pt-BR') }}</strong>
+      } @else {
+        <strong>Valor Não Informado</strong>
+      }
+    </div>
+    <div class="informacao">
+      <span class="rotulo">Modalidade</span>
+      <strong>{{ vaga.modalidade }}</strong>
+    </div>
+    <p class="descricao">
+      {{ vaga.descricao }}
+    </p>
+    <button type="button" class="botao-detalhes" (click)="alterarDetalhes()"
+      [attr.aria-expanded]="detalhesVisiveis" [attr.aria-controls]="'requisitos-' + vaga.id">
+      {{ detalhesVisiveis ? 'Ocultar requisitos' : 'Mostrar requisitos' }}
+    </button>
+    <!-- O ID conecta o botão ao painel de requisitos desta vaga. -->
+      <section class="requisitos" [id]="'requisitos-' + vaga.id" [hidden]="!detalhesVisiveis">
+        <h4>Requisitos da Vaga</h4>
+        <ul>
+          @for (requisito of vaga.requisitos; track $index) {
+            <li>{{ requisito }}</li>
+          } @empty {
+            <li>Nenhum requisito informado.</li>
+          }
+        </ul>
+      </section>
+    @if (!usuarioLogado) {
+      <p><a href="#inicio">Entre no início da página</a> para favoritar ou se candidatar.</p>
+    }
+    <div class="area-candidatura">
+      <button
+        class="botao-candidatar"
+        [disabled]="!usuarioLogado || !vaga.aberta || candidaturaEnviada"
+        (click)="candidatar()"
+      >
+        @if (!vaga.aberta) {
+          Vaga encerrada
+        } @else if (candidaturaEnviada) {
+          Candidatura realizada
+        } @else if (!usuarioLogado) {
+          Entre para se candidatar
+        } @else {
+          Candidatar
+        }
+      </button>
+    </div>
+    @if (candidaturaEnviada) {
+      <p class="mensagem-sucesso" role="status">Candidatura para {{ vaga.cargo }} realizada com sucesso!</p>
+    }
+  </div>
+</article>

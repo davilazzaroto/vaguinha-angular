@@ -1,59 +1,57 @@
 # Vaguinha
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.0.8.
+Projeto desenvolvido para praticar Angular nas aulas de Desenvolvimento Web. Simula um portal de vagas de tecnologia com dados fictícios.
 
-## Development server
+## Tecnologias
 
-To start a local development server, run:
+- Angular 22 e TypeScript.
+- HTML e CSS responsivo.
 
-```bash
-ng serve
-```
+## Como executar
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Utilize Node.js 24.15 ou superior da versão 24 LTS e npm.
 
 ```bash
-ng generate component component-name
+npm install
+npm start
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Acesse http://localhost:4200 no navegador.
+
+Para gerar a versão de produção:
 
 ```bash
-ng generate --help
+npm run build
 ```
 
-## Building
+Os arquivos gerados ficam em `dist/vaguinha`.
 
-To build the project run:
+## Funcionalidades
 
-```bash
-ng build
-```
+- Navegação por IDs entre Início, Vagas e Sobre.
+- Listagem de vagas com salário, modalidade e requisitos.
+- Login demonstrativo para liberar favoritos e candidaturas simuladas.
+- Exibição e ocultação dos requisitos de cada vaga.
+- Layout adaptado para telas menores.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Não há backend, autenticação real ou envio de candidaturas. Os dados ficam em memória e as interações são reiniciadas ao recarregar a página. As imagens são carregadas do Unsplash e precisam de acesso à internet.
 
-## Running unit tests
+## Organização e aprendizado
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+- `src/app/app.ts`: dados fictícios e estado do login.
+- `src/app/app.html`: seções da página e lista de vagas.
+- `src/app/components/`: cabeçalho, card de vaga e rodapé.
+- `src/app/models/vaga.ts`: interface com a estrutura de uma vaga.
+- `src/styles.css`: estilos globais.
 
-```bash
-ng test
-```
+O projeto exercita componentes, inputs, interpolação, eventos, interfaces, `@if` e `@for`. Cada vaga tem um ID único, usado pelo `track` da lista e pelos IDs dos cards e painéis de requisitos.
 
-## Running end-to-end tests
+## Conferência manual
 
-For end-to-end (e2e) testing, run:
+1. Clique em Início, Vagas e Sobre e confira as seções de destino.
+2. Abra e feche os requisitos de diferentes vagas.
+3. Clique em Entrar, favorite uma vaga e simule uma candidatura.
+4. Confira que a mesma candidatura não pode ser repetida e que Sair bloqueia novas ações.
+5. Recarregue a página para reiniciar a demonstração e confira o layout em uma tela estreita.
 
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+O projeto ainda não possui uma suíte de testes automatizados configurada; a compilação pode ser verificada com `npm run build`.

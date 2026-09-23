@@ -1,0 +1,49 @@
+:host {
+  display: block;
+}
+
+.destaque {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: #2563eb;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.secao-sobre {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px 55px;
+  border-top: 1px solid #e2e8f0;
+  line-height: 1.7;
+}
+.secao-sobre h2 {
+  color: #0f172a;
+  font-size: 34px;
+  margin: 0 0 16px;
+}
+.grade-sobre {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 24px;
+}
+.grade-sobre article {
+  padding: 24px;
+  background: #eff6ff;
+  border-radius: 16px;
+}
+.grade-sobre h3 {
+  margin-top: 0;
+  color: #1e3a8a;
+}
+.grade-sobre ul {
+  padding-left: 20px;
+}
+@media (max-width: 850px) {
+  .grade-sobre {
+    grid-template-columns: 1fr;
+  }
+}
