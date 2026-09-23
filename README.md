@@ -30,7 +30,7 @@ Os arquivos gerados ficam em `dist/vaguinha`.
 
 - Navegação por IDs entre Início, Vagas e Sobre.
 - Listagem de vagas com salário, modalidade e requisitos.
-- Login demonstrativo para liberar favoritos e candidaturas simuladas.
+- Login demonstrativo para liberar favoritos e o botão Candidatar.
 - Exibição e ocultação dos requisitos de cada vaga.
 - Layout adaptado para telas menores.
 
@@ -39,8 +39,9 @@ Não há backend, autenticação real ou envio de candidaturas. Os dados ficam e
 ## Organização e aprendizado
 
 - `src/app/app.ts`: dados fictícios e estado do login.
-- `src/app/app.html`: seções da página e lista de vagas.
-- `src/app/components/`: cabeçalho, card de vaga e rodapé.
+- `src/app/app.html`: apresentação, lista de vagas e composição dos componentes da página.
+- `src/app/app.css`: estilos da apresentação e da seção de vagas.
+- `src/app/components/`: componentes standalone de cabeçalho, card de vaga, sobre e rodapé.
 - `src/app/models/vaga.ts`: interface com a estrutura de uma vaga.
 - `src/styles.css`: estilos globais.
 
@@ -50,7 +51,7 @@ O projeto exercita componentes, inputs, interpolação, eventos, interfaces, `@i
 
 1. Clique em Início, Vagas e Sobre e confira as seções de destino.
 2. Abra e feche os requisitos de diferentes vagas.
-3. Clique em Entrar, favorite uma vaga e simule uma candidatura.
+3. Clique em Entrar, favorite uma vaga e clique em Candidatar.
 4. Confira que a mesma candidatura não pode ser repetida e que Sair bloqueia novas ações.
 5. Recarregue a página para reiniciar a demonstração e confira o layout em uma tela estreita.
 
