@@ -55,4 +55,3 @@ O projeto exercita componentes, inputs, interpolação, eventos, interfaces, `@i
 4. Confira que a mesma candidatura não pode ser repetida e que Sair bloqueia novas ações.
 5. Recarregue a página para reiniciar a demonstração e confira o layout em uma tela estreita.
 
-O projeto ainda não possui uma suíte de testes automatizados configurada; a compilação pode ser verificada com `npm run build`.
